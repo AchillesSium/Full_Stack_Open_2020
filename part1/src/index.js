@@ -16,13 +16,23 @@ const Content = (content) => {
   return (
     <div>
       <p>
-        {content.part1} {content.exercises1}
+        <Part part={content.part1} exrcises={content.exercises1} />
       </p>
       <p>
-        {content.part2} {content.exercises2}
+        <Part part={content.part2} exrcises={content.exercises2} />
       </p>
       <p>
-        {content.part3} {content.exercises3}
+        <Part part={content.part3} exrcises={content.exercises3} />
+      </p>
+    </div>
+  )
+}
+
+const Part = (content_part) => {
+  return (
+    <div>
+      <p>
+        {content_part.part} {content_part.exrcises}
       </p>
     </div>
   )
