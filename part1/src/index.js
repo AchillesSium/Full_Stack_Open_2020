@@ -16,7 +16,7 @@ const Content = (content) => {
   return (
     <div>
       <p>
-        {content.part1} {content.exrcises1}
+        {content.part1} {content.exercises1}
       </p>
       <p>
         {content.part2} {content.exercises2}
