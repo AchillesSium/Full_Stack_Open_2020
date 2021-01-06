@@ -13,16 +13,19 @@ const Header = (coursename) => {
 }
 
 const Content = (content) => {
+  const part1 = content.parts[0]
+  const part2 = content.parts[1]
+  const part3 = content.parts[2]
   return (
     <div>
       <p>
-        <Part part={content.part1} exrcises={content.exercises1} />
+        <Part part={part1.name} exrcises={part1.exercises} />
       </p>
       <p>
-        <Part part={content.part2} exrcises={content.exercises2} />
+        <Part part={part2.name} exrcises={part2.exercises} />
       </p>
       <p>
-        <Part part={content.part3} exrcises={content.exercises3} />
+        <Part part={part3.name} exrcises={part3.exercises} />
       </p>
     </div>
   )
@@ -39,10 +42,11 @@ const Part = (content_part) => {
 }
 
 const Total = (total) => {
+  const number = total.parts.reduce((total,currentvalue) => total = total+currentvalue.exercises,0);
   return (
     <div>
       <p>
-        Number of exercises = {total.number}
+        Number of exercises = {number}
       </p>
     </div>
   )
@@ -64,15 +68,12 @@ const App = () => {
       exercises: 14
     }
   ]
-  const part1 = parts[0]
-  const part2 = parts[1]
-  const part3 = parts[2]
 
   return (
     <div>
       <Header course={course} />
-      <Content part1={part1.name} exercises1={part1.exercises} part2={part2.name} exercises2={part2.exercises} part3={part3.name} exercises3={part3.exercises} />
-      <Total number={part1.exercises + part2.exercises + part3.exercises}/>
+      <Content parts={parts} />
+      <Total parts={parts} />
     </div>
   )
 }
